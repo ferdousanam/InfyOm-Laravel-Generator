@@ -152,11 +152,11 @@ return [
 
     'prefixes' => [
 
-        'route' => '',  // using admin will create route('admin.?.index') type routes
+        'route' => 'admin',  // using admin will create route('admin.?.index') type routes
 
-        'path' => '',
+        'path' => 'backend',
 
-        'view' => '',  // using backend will create return view('backend.?.index') type the backend views directory
+        'view' => 'backend',  // using backend will create return view('backend.?.index') type the backend views directory
 
         'public' => '',
     ],
@@ -180,7 +180,7 @@ return [
 
             'enabled'       => true,
 
-            'menu_file'     => 'layouts/menu.blade.php',
+            'menu_file'     => 'backend/layouts/menu.blade.php',
         ],
     ],
 
