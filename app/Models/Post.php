@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Post
@@ -23,7 +23,7 @@ class Post extends Model
     use HasFactory;
 
     public $table = 'posts';
-    
+
 
     protected $dates = ['deleted_at'];
 
