@@ -19,6 +19,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Auth::routes(['register' => false]);
     });
     Route::get('/', [App\Http\Controllers\Backend\HomeController::class, 'index'])->name('dashboard');
+    Route::resource('users', \App\Http\Controllers\Backend\UserController::class)->middleware('auth');
     Route::resource('categories', App\Http\Controllers\Backend\CategoryController::class);
     Route::resource('posts', App\Http\Controllers\Backend\PostController::class);
 });
