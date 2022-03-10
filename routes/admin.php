@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/admin', [App\Http\Controllers\Backend\HomeController::class, 'index']);
 
-
-Route::group(['prefix' => 'admin'], function () {
-    Route::resource('categories', App\Http\Controllers\Backend\CategoryController::class, ["as" => 'admin']);
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::get('/', [App\Http\Controllers\Backend\HomeController::class, 'index']);
+    Route::resource('categories', App\Http\Controllers\Backend\CategoryController::class);
+    Route::resource('posts', App\Http\Controllers\Backend\PostController::class);
 });
