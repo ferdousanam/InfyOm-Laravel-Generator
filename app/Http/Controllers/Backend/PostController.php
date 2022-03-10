@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\Backend\CreatePostRequest;
-use App\Http\Requests\Backend\UpdatePostRequest;
-use App\Repositories\Backend\PostRepository;
+use App\Http\Requests\CreatePostRequest;
+use App\Http\Requests\UpdatePostRequest;
+use App\Repositories\PostRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;

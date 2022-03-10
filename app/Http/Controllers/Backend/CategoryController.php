@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\Backend\CreateCategoryRequest;
-use App\Http\Requests\Backend\UpdateCategoryRequest;
-use App\Repositories\Backend\CategoryRepository;
+use App\Http\Requests\CreateCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
+use App\Repositories\CategoryRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Backend;
+namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Category
- * @package App\Models\Backend
- * @version March 10, 2022, 5:04 pm UTC
+ * @package App\Models
+ * @version March 10, 2022, 5:10 pm UTC
  *
  * @property \Illuminate\Database\Eloquent\Collection $posts
  * @property string $name
@@ -54,6 +54,6 @@ class Category extends Model
      **/
     public function posts()
     {
-        return $this->hasMany(\App\Models\Backend\Post::class, 'category_id', 'id');
+        return $this->hasMany(\App\Models\Post::class, 'category_id', 'id');
     }
 }

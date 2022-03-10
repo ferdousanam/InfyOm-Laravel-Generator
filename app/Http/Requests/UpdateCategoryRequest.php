@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Backend;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Backend\Category;
+use App\Models\Category;
 
-class CreateCategoryRequest extends FormRequest
+class UpdateCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,6 +24,8 @@ class CreateCategoryRequest extends FormRequest
      */
     public function rules()
     {
-        return Category::$rules;
+        $rules = Category::$rules;
+        
+        return $rules;
     }
 }

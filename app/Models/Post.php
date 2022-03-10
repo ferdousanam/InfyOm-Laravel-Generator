@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Backend;
+namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Post
- * @package App\Models\Backend
- * @version March 10, 2022, 4:58 pm UTC
+ * @package App\Models
+ * @version March 10, 2022, 5:10 pm UTC
  *
- * @property \App\Models\Backend\Category $category
+ * @property \App\Models\Category $category
  * @property integer $category_id
  * @property string $title
  * @property string $body
@@ -61,6 +61,6 @@ class Post extends Model
      **/
     public function category()
     {
-        return $this->belongsTo(\App\Models\Backend\Category::class, 'category_id', 'id');
+        return $this->belongsTo(\App\Models\Category::class, 'category_id', 'id');
     }
 }

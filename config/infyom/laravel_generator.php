@@ -27,9 +27,9 @@ return [
 
         'api_request'       => app_path('Http/Requests/API/'),
 
-        'controller'        => app_path('Http/Controllers/'),
+        'controller'        => app_path('Http/Controllers/Backend/'),
 
-        'api_controller'    => app_path('Http/Controllers/API/'),
+        'api_controller'    => app_path('Http/Controllers/API/Backend/'),
 
         'api_resource'      => app_path('Http/Resources/'),
 
@@ -69,9 +69,9 @@ return [
 
         'repository'        => 'App\Repositories',
 
-        'controller'        => 'App\Http\Controllers',
+        'controller'        => 'App\Http\Controllers\Backend',
 
-        'api_controller'    => 'App\Http\Controllers\API',
+        'api_controller'    => 'App\Http\Controllers\API\Backend',
 
         'api_resource'      => 'App\Http\Resources',
 
@@ -154,7 +154,7 @@ return [
 
         'route' => 'admin',  // using admin will create route('admin.?.index') type routes
 
-        'path' => 'backend',
+        'path' => '',
 
         'view' => 'backend',  // using backend will create return view('backend.?.index') type the backend views directory
 

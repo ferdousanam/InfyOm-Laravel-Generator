@@ -1,23 +1,25 @@
 <?php
 
-namespace App\Repositories\Backend;
+namespace App\Repositories;
 
-use App\Models\Backend\Category;
+use App\Models\Post;
 use App\Repositories\BaseRepository;
 
 /**
- * Class CategoryRepository
- * @package App\Repositories\Backend
- * @version March 10, 2022, 10:09 am UTC
+ * Class PostRepository
+ * @package App\Repositories
+ * @version March 10, 2022, 5:10 pm UTC
 */
 
-class CategoryRepository extends BaseRepository
+class PostRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'name'
+        'category_id',
+        'title',
+        'body'
     ];
 
     /**
@@ -35,6 +37,6 @@ class CategoryRepository extends BaseRepository
      **/
     public function model()
     {
-        return Category::class;
+        return Post::class;
     }
 }

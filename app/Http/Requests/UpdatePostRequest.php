@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Requests\Backend;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Backend\Post;
+use App\Models\Post;
 
 class UpdatePostRequest extends FormRequest
 {
