@@ -13,7 +13,7 @@
 <!-- Body Field -->
 <div class="col-sm-12">
     {!! Form::label('body', 'Body:') !!}
-    <p>{{ $post->body }}</p>
+    <p style="white-space: pre-wrap">{{ $post->body }}</p>
 </div>
 
 <!-- Created At Field -->
