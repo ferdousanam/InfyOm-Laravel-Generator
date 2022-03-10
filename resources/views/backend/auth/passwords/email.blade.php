@@ -34,7 +34,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{ url('/home') }}"><b>{{ config('app.name') }}</b></a>
+        <a href="{{ route('admin.dashboard') }}"><b>{{ config('app.name') }}</b></a>
     </div>
 
     <!-- /.login-logo -->
@@ -48,7 +48,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('password.email') }}" method="post">
+            <form action="{{ route('admin.password.email') }}" method="post">
                 @csrf
 
                 <div class="input-group mb-3">

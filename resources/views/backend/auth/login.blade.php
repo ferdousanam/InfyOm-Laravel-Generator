@@ -34,7 +34,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{ url('/home') }}"><b>{{ config('app.name') }}</b></a>
+        <a href="{{ route('admin.dashboard') }}"><b>{{ config('app.name') }}</b></a>
     </div>
 
     <!-- /.login-logo -->
@@ -44,7 +44,7 @@
         <div class="card-body login-card-body">
             <p class="login-box-msg">Sign in to start your session</p>
 
-            <form method="post" action="{{ url('/login') }}">
+            <form method="post" action="{{ route('admin.login') }}">
                 @csrf
 
                 <div class="input-group mb-3">
@@ -93,11 +93,13 @@
             </form>
 
             <p class="mb-1">
-                <a href="{{ route('password.request') }}">I forgot my password</a>
+                <a href="{{ route('admin.password.request') }}">I forgot my password</a>
             </p>
-            <p class="mb-0">
-                <a href="{{ route('register') }}" class="text-center">Register a new membership</a>
-            </p>
+            @if (Route::has('admin.register'))
+                <p class="mb-0">
+                    <a href="{{ route('admin.register') }}" class="text-center">Register a new membership</a>
+                </p>
+            @endif
         </div>
         <!-- /.login-card-body -->
     </div>

@@ -34,7 +34,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{ url('/home') }}"><b>{{ config('app.name') }}</b></a>
+        <a href="{{ route('admin.dashboard') }}"><b>{{ config('app.name') }}</b></a>
     </div>
 
     <div class="card">
@@ -43,7 +43,7 @@
                 You are only one step a way from your new password, recover your password now.
             </p>
 
-            <form action="{{ route('password.update') }}" method="POST">
+            <form action="{{ route('admin.password.update') }}" method="POST">
                 @csrf
 
                 <input type="hidden" name="token" value="{{ $token }}">
@@ -98,7 +98,7 @@
             </form>
 
             <p class="mt-3 mb-1">
-                <a href="{{ route('login') }}">Login</a>
+                <a href="{{ route('admin.login') }}">Login</a>
             </p>
         </div>
         <!-- /.reset-card-body -->

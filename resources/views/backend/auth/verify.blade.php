@@ -17,7 +17,7 @@
                             Before proceeding, please check your email for a verification link.If you did not receive
                             the email,
                         </p>
-                        <a href="{{ route('verification.resend') }}">click here to request another'</a>.
+                        <a href="{{ route('admin.verification.resend') }}">click here to request another'</a>.
                     </div>
                 </div>
             </div>

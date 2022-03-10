@@ -34,14 +34,14 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{ url('/home') }}"><b>{{ config('app.name') }}</b></a>
+        <a href="{{ route('admin.dashboard') }}"><b>{{ config('app.name') }}</b></a>
     </div>
 
     <div class="card">
         <div class="card-body login-card-body">
             <p class="login-box-msg">Please confirm your password before continuing.</p>
 
-            <form method="POST" action="{{ route('password.confirm') }}">
+            <form method="POST" action="{{ route('admin.password.confirm') }}">
                 @csrf
 
                 <div class="input-group mb-3">
@@ -68,7 +68,7 @@
             </form>
 
             <p class="mt-3 mb-1">
-                <a href="{{ route('password.request') }}">Forgot Your Password?</a>
+                <a href="{{ route('admin.password.request') }}">Forgot Your Password?</a>
             </p>
         </div>
         <!-- /.login-card-body -->

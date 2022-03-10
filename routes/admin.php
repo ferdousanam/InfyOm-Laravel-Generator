@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::get('/', [App\Http\Controllers\Backend\HomeController::class, 'index']);
+    Route::group(['namespace' => 'App\Http\Controllers\Backend'], function () {
+        Auth::routes(['register' => false]);
+    });
+    Route::get('/', [App\Http\Controllers\Backend\HomeController::class, 'index'])->name('dashboard');
     Route::resource('categories', App\Http\Controllers\Backend\CategoryController::class);
     Route::resource('posts', App\Http\Controllers\Backend\PostController::class);
 });
