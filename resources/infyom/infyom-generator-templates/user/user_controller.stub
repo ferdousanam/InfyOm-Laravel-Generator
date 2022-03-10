@@ -6,10 +6,11 @@ use $NAMESPACE_REQUEST$\CreateUserRequest;
 use $NAMESPACE_REQUEST$\UpdateUserRequest;
 use $NAMESPACE_REPOSITORY$\UserRepository;
 use $NAMESPACE_CONTROLLER$\AppBaseController;
+use Hash;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
-use Response;
-use Hash;
 
 class UserController extends AppBaseController
 {
@@ -26,23 +27,23 @@ class UserController extends AppBaseController
      *
      * @param Request $request
      *
-     * @return Response
+     * @return Renderable
      */
     public function index(Request $request)
     {
         $users = $this->userRepository->all();
 
-        return view('users.index')->with('users', $users);
+        return view('backend.users.index')->with('users', $users);
     }
 
     /**
      * Show the form for creating a new User.
      *
-     * @return Response
+     * @return Renderable
      */
     public function create()
     {
-        return view('users.create');
+        return view('backend.users.create');
     }
 
     /**
@@ -50,7 +51,7 @@ class UserController extends AppBaseController
      *
      * @param CreateUserRequest $request
      *
-     * @return Response
+     * @return RedirectResponse
      */
     public function store(CreateUserRequest $request)
     {
@@ -60,7 +61,7 @@ class UserController extends AppBaseController
 
         Flash::success('User saved successfully.');
 
-        return redirect(route('users.index'));
+        return redirect(route('admin.users.index'));
     }
 
     /**
@@ -68,7 +69,7 @@ class UserController extends AppBaseController
      *
      * @param int $id
      *
-     * @return Response
+     * @return Renderable|RedirectResponse
      */
     public function show($id)
     {
@@ -77,10 +78,10 @@ class UserController extends AppBaseController
         if (empty($user)) {
             Flash::error('User not found');
 
-            return redirect(route('users.index'));
+            return redirect(route('admin.users.index'));
         }
 
-        return view('users.show')->with('user', $user);
+        return view('backend.users.show')->with('user', $user);
     }
 
     /**
@@ -88,7 +89,7 @@ class UserController extends AppBaseController
      *
      * @param int $id
      *
-     * @return Response
+     * @return Renderable|RedirectResponse
      */
     public function edit($id)
     {
@@ -97,10 +98,10 @@ class UserController extends AppBaseController
         if (empty($user)) {
             Flash::error('User not found');
 
-            return redirect(route('users.index'));
+            return redirect(route('admin.users.index'));
         }
 
-        return view('users.edit')->with('user', $user);
+        return view('backend.users.edit')->with('user', $user);
     }
 
     /**
@@ -109,7 +110,7 @@ class UserController extends AppBaseController
      * @param int $id
      * @param UpdateUserRequest $request
      *
-     * @return Response
+     * @return RedirectResponse
      */
     public function update($id, UpdateUserRequest $request)
     {
@@ -118,7 +119,7 @@ class UserController extends AppBaseController
         if (empty($user)) {
             Flash::error('User not found');
 
-            return redirect(route('users.index'));
+            return redirect(route('admin.users.index'));
         }
         $input =  $request->all();
         if (!empty($input['password'])) {
@@ -130,7 +131,7 @@ class UserController extends AppBaseController
 
         Flash::success('User updated successfully.');
 
-        return redirect(route('users.index'));
+        return redirect(route('admin.users.index'));
     }
 
     /**
@@ -140,7 +141,7 @@ class UserController extends AppBaseController
      *
      * @throws \Exception
      *
-     * @return Response
+     * @return RedirectResponse
      */
     public function destroy($id)
     {
@@ -149,13 +150,13 @@ class UserController extends AppBaseController
         if (empty($user)) {
             Flash::error('User not found');
 
-            return redirect(route('users.index'));
+            return redirect(route('admin.users.index'));
         }
 
         $this->userRepository->delete($id);
 
         Flash::success('User deleted successfully.');
 
-        return redirect(route('users.index'));
+        return redirect(route('admin.users.index'));
     }
 }
