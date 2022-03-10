@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class Post
  * @package App\Models\Backend
- * @version March 10, 2022, 11:22 am UTC
+ * @version March 10, 2022, 4:58 pm UTC
  *
+ * @property \App\Models\Backend\Category $category
  * @property integer $category_id
  * @property string $title
  * @property string $body
@@ -22,7 +23,7 @@ class Post extends Model
     use HasFactory;
 
     public $table = 'posts';
-
+    
 
     protected $dates = ['deleted_at'];
 
@@ -55,8 +56,11 @@ class Post extends Model
         'body' => 'nullable'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(\App\Models\Backend\Category::class, 'category_id', 'id');
     }
 }

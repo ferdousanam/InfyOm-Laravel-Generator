@@ -21,7 +21,8 @@
         "primary": false,
         "inForm": true,
         "inIndex": true,
-        "inView": true
+        "inView": true,
+        "relation": "mt1,Category,category_id,id"
     },
     {
         "name": "title",

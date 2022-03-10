@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class Category
  * @package App\Models\Backend
- * @version March 10, 2022, 10:09 am UTC
+ * @version March 10, 2022, 5:04 pm UTC
  *
+ * @property \Illuminate\Database\Eloquent\Collection $posts
  * @property string $name
  */
 class Category extends Model
@@ -48,5 +49,11 @@ class Category extends Model
         'name' => 'required'
     ];
 
-    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function posts()
+    {
+        return $this->hasMany(\App\Models\Backend\Post::class, 'category_id', 'id');
+    }
 }
