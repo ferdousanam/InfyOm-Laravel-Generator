@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Backend\HomeController::class, 'index']);
+Route::get('/admin', [App\Http\Controllers\Backend\HomeController::class, 'index']);
